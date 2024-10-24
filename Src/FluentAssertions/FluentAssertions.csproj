@@ -25,7 +25,7 @@
     <PackageProjectUrl>https://github.com/meenzen/AwesomeAssertions</PackageProjectUrl>
     <RepositoryUrl>https://github.com/meenzen/AwesomeAssertions</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
-    <PackageTags>MSTest2;xUnit;NUnit;MSpec;TDD;BDD;Fluent;netstandard;uwp</PackageTags>
+    <PackageTags>MSTest2;xUnit;NUnit;MSpec;TUnit;TDD;BDD;Fluent;netstandard;uwp</PackageTags>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <PackageIcon>FluentAssertions.png</PackageIcon>
     <PackageReleaseNotes>See https://github.com/meenzen/AwesomeAssertions/releases</PackageReleaseNotes>
