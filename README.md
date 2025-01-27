@@ -1,17 +1,16 @@
 <a href="https://www.fluentassertions.com"><img src="docs/assets/images/fluent_assertions_large_horizontal.svg" style="width:400px"/></a>
 
 # Extension methods to fluently assert the outcome of .NET tests
-[![](https://img.shields.io/github/actions/workflow/status/fluentassertions/fluentassertions/build.yml?branch=develop)](https://github.com/fluentassertions/fluentassertions/actions?query=branch%3Adevelop)
-[![Coveralls branch](https://img.shields.io/coverallsCoverage/github/fluentassertions/fluentassertions?branch=develop)](https://coveralls.io/github/fluentassertions/fluentassertions?branch=develop)
-[![qodana](https://github.com/fluentassertions/fluentassertions/actions/workflows/code_quality.yml/badge.svg)](https://github.com/fluentassertions/fluentassertions/actions/workflows/code_quality.yml)
-[![](https://img.shields.io/github/release/FluentAssertions/FluentAssertions.svg?label=latest%20release&color=007edf)](https://github.com/FluentAssertions/FluentAssertions/releases/latest)
-[![](https://img.shields.io/nuget/dt/FluentAssertions.svg?label=downloads&color=007edf&logo=nuget)](https://www.nuget.org/packages/FluentAssertions)
-[![](https://img.shields.io/librariesio/dependents/nuget/FluentAssertions.svg?label=dependent%20libraries)](https://libraries.io/nuget/FluentAssertions)
-[![GitHub Repo stars](https://img.shields.io/github/stars/fluentassertions/fluentassertions)](https://github.com/fluentassertions/fluentassertions/stargazers)
-[![GitHub contributors](https://img.shields.io/github/contributors/fluentassertions/fluentassertions)](https://github.com/fluentassertions/fluentassertions/graphs/contributors)
-[![GitHub last commit](https://img.shields.io/github/last-commit/fluentassertions/fluentassertions)](https://github.com/fluentassertions/fluentassertions)
-[![GitHub commit activity](https://img.shields.io/github/commit-activity/m/fluentassertions/fluentassertions)](https://github.com/fluentassertions/fluentassertions/graphs/commit-activity)
-[![open issues](https://img.shields.io/github/issues/fluentassertions/fluentassertions)](https://github.com/fluentassertions/fluentassertions/issues)
+[![](https://img.shields.io/github/actions/workflow/status/AwesomeAssertions/AwesomeAssertions/build.yml?branch=support-7.0)](https://github.com/AwesomeAssertions/AwesomeAssertions/actions?query=branch%3Asupport-7.0)
+[![Coveralls branch](https://img.shields.io/coverallsCoverage/github/AwesomeAssertions/AwesomeAssertions?branch=support-7.0)](https://coveralls.io/github/AwesomeAssertions/AwesomeAssertions?branch=support-7.0)
+[![](https://img.shields.io/github/release/AwesomeAssertions/AwesomeAssertions.svg?label=latest%20release&color=007edf)](https://github.com/AwesomeAssertions/AwesomeAssertions/releases/latest)
+[![](https://img.shields.io/nuget/dt/AwesomeAssertions.svg?label=downloads&color=007edf&logo=nuget)](https://www.nuget.org/packages/AwesomeAssertions)
+[![](https://img.shields.io/librariesio/dependents/nuget/AwesomeAssertions.svg?label=dependent%20libraries)](https://libraries.io/nuget/AwesomeAssertions)
+[![GitHub Repo stars](https://img.shields.io/github/stars/AwesomeAssertions/AwesomeAssertions)](https://github.com/AwesomeAssertions/AwesomeAssertions/stargazers)
+[![GitHub contributors](https://img.shields.io/github/contributors/AwesomeAssertions/AwesomeAssertions)](https://github.com/fluentassertions/AwesomeAssertions/graphs/contributors)
+[![GitHub last commit](https://img.shields.io/github/last-commit/AwesomeAssertions/AwesomeAssertions)](https://github.com/AwesomeAssertions/AwesomeAssertions)
+[![GitHub commit activity](https://img.shields.io/github/commit-activity/m/AwesomeAssertions/AwesomeAssertions)](https://github.com/AwesomeAssertions/AwesomeAssertions/graphs/commit-activity)
+[![open issues](https://img.shields.io/github/issues/AwesomeAssertions/AwesomeAssertions)](https://github.com/AwesomeAssertions/AwesomeAssertions/issues)
 ![](https://img.shields.io/badge/release%20strategy-githubflow-orange.svg)
 
 A very extensive set of extension methods that allow you to more naturally specify the expected outcome of a TDD or BDD-style unit tests. Targets .NET Framework 4.7, as well as .NET 6, .NET Standard 2.0 and 2.1.
