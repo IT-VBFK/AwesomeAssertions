@@ -12,7 +12,6 @@
     <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
     <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageId>AwesomeAssertions</PackageId>
   </PropertyGroup>
 
