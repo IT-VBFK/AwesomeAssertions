@@ -6,7 +6,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        We welcome API proposals! We have a process to evaluate the value and shape of new API. There is an overview of our process [here](https://github.com/fluentassertions/fluentassertions/blob/develop/CONTRIBUTING.md#contributing-changes). This template will help us gather the information we need to start the review process.
+        We welcome API proposals! We have a process to evaluate the value and shape of new API. There is an overview of our process [here](https://github.com/awesomeassertions/awesomeassertions/blob/main/CONTRIBUTING.md#contributing-changes). This template will help us gather the information we need to start the review process.
   - type: textarea
     id: background
     attributes:
@@ -73,7 +73,7 @@ body:
       label: Are you willing to help with a proof-of-concept (as PR in that or a separate repo) first and as pull-request later on?
       description: |
         This is mainly to help demonstrate your suggestion. 
-        Please also make sure you have read the sections about [contributing changes](https://github.com/fluentassertions/fluentassertions/blob/develop/CONTRIBUTING.md#contributing-changes) and [dos and don'ts](https://github.com/fluentassertions/fluentassertions/blob/develop/CONTRIBUTING.md#dos-and-donts).
+        Please also make sure you have read the sections about [contributing changes](https://github.com/awesomeassertions/awesomeassertions/blob/main/CONTRIBUTING.md#contributing-changes) and [dos and don'ts](https://github.com/awesomeassertions/awesomeassertions/blob/main/CONTRIBUTING.md#dos-and-donts).
       options:
         - "No"
         - "Yes, please assign this issue to me."

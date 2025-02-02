@@ -29,7 +29,7 @@ body:
     attributes:
       label: Are you willing help with a pull-request?
       description: |
-        Make sure you have read the sections about [contributing changes](https://github.com/fluentassertions/fluentassertions/blob/develop/CONTRIBUTING.md#contributing-changes) and [dos and don'ts](https://github.com/fluentassertions/fluentassertions/blob/develop/CONTRIBUTING.md#dos-and-donts).
+        Make sure you have read the sections about [contributing changes](https://github.com/awesomeassertions/awesomeassertions/blob/main/CONTRIBUTING.md#contributing-changes) and [dos and don'ts](https://github.com/awesomeassertions/awesomeassertions/blob/main/CONTRIBUTING.md#dos-and-donts).
       options:
         - "No"
         - "Yes, please assign this issue to me."
