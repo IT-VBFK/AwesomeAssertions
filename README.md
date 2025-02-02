@@ -21,11 +21,6 @@
 I, @meenzen hereby commit to keeping the Apache 2 license of AwesomeAssertions intact so that you may depend on in as a
 drop-in replacement without having to fear any license violations by accidentally upgrading.
 
-## Maintenance
-
-Please do not expect updates to this fork, as I cannot commit to maintaining it in the future. I will do my best to
-review and merge critical PRs if required and to release new versions of AwesomeAssertions as needed.
-
 ## Automatic replacement using Renovate Bot
 
 If you are using Renovate Bot, you can automatically replace FluentAssertions with AwesomeAssertions by adding the
