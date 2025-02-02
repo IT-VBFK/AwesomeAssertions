@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- 
+   AwesomeAssertions Logo v1: 26.01.2025 
+   
+-->
+<svg
+   viewBox="0 0 18 20"
+   version="1.1"
+   style="background-color:#ffffff"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <g>
+    <path
+     d="M 0.39982365,11.346126 2.4544035,9.9463019 Q 3.3123599,11.30097 4.0348496,12.700794 4.7573392,14.078039 5.344362,15.500441 6.2700518,11.684793 7.7601867,7.9820332 9.2503215,4.2792739 11.169435,0.64424799 L 12.86277,1.4796266 Q 10.740456,5.7016754 9.0696991,10.104347 7.4215197,14.48444 6.2926296,19 l -1.806224,0.158045 Q 3.6058714,17.216354 2.5898703,15.206929 1.5964471,13.197505 0.39982365,11.346126 Z"
+     id="checkmark"
+     style="font-weight:bold;font-size:22.5778px;font-family:'Source Serif Pro';-inkscape-font-specification:'Source Serif Pro Bold';fill:#188000;stroke-width:0.5"
+     aria-label="✓" />
+   <path
+       style="font-weight:600;font-size:22.5778px;font-family:'Source Sans Pro';-inkscape-font-specification:'Source Sans Pro Semi-Bold';stroke-width:0.5;paint-order:markers fill stroke"
+       d="m 8.573748,15.082959 h 4.967116 l 1.151468,3.996271 h 2.754491 l -4.809071,-14.765882 -1.329802,2.865374 0.110596,0.385829 c 0.210726,0.827853 0.428978,1.655705 0.654756,2.483558 l 0.880534,2.98027 H 9.183349 Z"
+       id="path-A"
+       sodipodi:nodetypes="ccccccccccc" />
+  </g>
+</svg>
