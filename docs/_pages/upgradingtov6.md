@@ -9,7 +9,7 @@ sidebar:
 
 ## Enums
 
-In Fluent Assertions v5 enums were handled by the `ObjectAssertions` class, which is what you have in hand when invoking `Should()` on any type not handled by a specialized overload of `Should()`.
+In Awesome Assertions v5 enums were handled by the `ObjectAssertions` class, which is what you have in hand when invoking `Should()` on any type not handled by a specialized overload of `Should()`.
 `ObjectAssertions` derives from `ReferenceTypeAssertions`, so all these assertions were available when asserting on an enum.
 
 * `[Not]Be(object)`
@@ -46,7 +46,7 @@ MyEnum.One.Should().Be(1);
 1.As<object>().Should().Be(MyOtherEnum.One);
 ```
 
-In Fluent Assertions v6 enums are now handled by `EnumAssertions` which should cover the same use cases and even more, but without the old bugs and unexpected surprises.
+In Awesome Assertions v6 enums are now handled by `EnumAssertions` which should cover the same use cases and even more, but without the old bugs and unexpected surprises.
 Technically nullable enums are handled by `NullableEnumAssertions` which in addition to the assertions mentioned below have `[Not]BeNull` and `[Not]HaveValue`.
 `Be` and `HaveFlag` now calls directly into `Enum.Equals` and `Enum.HasFlag`, as you would expect, and any try to compare an enum with another type of enum or integer leads to a compilation error.
 If you want to compare two enums of different types, you can use `HaveSameValueAs` or `HaveSameNameAs` depending on how _you_ define equality for different enums.
@@ -154,7 +154,7 @@ subject.Should().BeEquivalentTo(expectation, opt => opt
 
 ## Value Formatters
 
-Within Fluent Assertions, the `Formatter` class is responsible for rendering a textual representation of the objects involved in an assertion. Those objects can turn out to be entire graphs, especially when you use `BeEquivalentTo`. Rendering such a graph can be an expensive operation, so in 5.x we already had limits on how deep the `Formatter` would traverse the object graph. Because we received several performance-related issues, we decided to slightly redesign how implementations of `IValueFormatter` should work. This unfortunately required us to introduce some breaking changes in the signature of the `Format` method as well as some behavioral changes. You can read all about that in the updated [extensibility guide](/extensibility/#rendering-objects-with-beauty), but the gist of it is that instead of returning a `string`, you now need to use the `FormattedObjectGraph`, which acts like a kind of `StringBuilder`. For instance, this is what the `StringValueFormatter` now looks like:
+Within Awesome Assertions, the `Formatter` class is responsible for rendering a textual representation of the objects involved in an assertion. Those objects can turn out to be entire graphs, especially when you use `BeEquivalentTo`. Rendering such a graph can be an expensive operation, so in 5.x we already had limits on how deep the `Formatter` would traverse the object graph. Because we received several performance-related issues, we decided to slightly redesign how implementations of `IValueFormatter` should work. This unfortunately required us to introduce some breaking changes in the signature of the `Format` method as well as some behavioral changes. You can read all about that in the updated [extensibility guide](/extensibility/#rendering-objects-with-beauty), but the gist of it is that instead of returning a `string`, you now need to use the `FormattedObjectGraph`, which acts like a kind of `StringBuilder`. For instance, this is what the `StringValueFormatter` now looks like:
 
 ```csharp
 public void Format(object value, FormattedObjectGraph formattedGraph, FormattingContext context, FormatChild formatChild)
@@ -210,14 +210,14 @@ items.Should().BeEquivalentTo(new List<I> { new A() }); // (3)
 items.Should().BeEquivalentTo(new I[] { new A() }, opt => opt); // (4)
 ```
 
-In Fluent Assertions 5.0 `(1)` and `(2)` both used the `BeEquivalentTo(params object[])` overload, which meant the expectation was seen as `object`s with runtime time `A` and now `AA` was unexpectedly included in the comparison.
+In Awesome Assertions 5.0 `(1)` and `(2)` both used the `BeEquivalentTo(params object[])` overload, which meant the expectation was seen as `object`s with runtime time `A` and now `AA` was unexpectedly included in the comparison.
 Case `(3)` works as expected, as `List<T>` is not implicitly convertible to `T[]` and the compiler picks `BeEquivalentTo(IEnumerable<I>)`, which retains the compile time information about the expectation being objects of type `I`.
 A case which led to some confusion among our users was that `(2)` changed behavior when adding assertion options, as shown in `(4)`, as `BeEquivalentTo(IEnumerable<T>, Func<EquivalencyAssertionOptions<I>>)` was now picked because `I[]` is implicitly convertible to `IEnumerable<I>`.
 
 You might ask if we could not just have changed the overload signature from `params object[]` to `params T[]` to solve the type problem while keeping the convenient overload.
 The answer is no (as far as we know), as the compiler prefers resolving e.g. `IEnumerable<T>` to `params IEnumerable<T>[]` over `IEnumerable<T>`.
 
-For Fluent Assertions 6.0 the implications of this are that `(1)` no longer compiles, as `BeEquivalentTo` takes an `IEnumerable<T>`, but `(2)` now works as expected.
+For Awesome Assertions 6.0 the implications of this are that `(1)` no longer compiles, as `BeEquivalentTo` takes an `IEnumerable<T>`, but `(2)` now works as expected.
 
 ## Asserting exceptions asynchronously 
 In the past, we would invoke asynchronous code by wrapping it in a synchronously blocking call. Unfortunately this resulted in occasional deadlocks, which we fixed by temporarily clearing the `SynchronizationContext`. This worked, but felt like an ugly workaround. So in v6, we decided to fully embrace asynchronous code and make some of the assertion APIs async itself. This means that using `Should().Throw()`, `ThrowExactly()` and `NotThrow()` will no longer magically work on `async` code and you need to use the versions with the `Async` postfix instead.
@@ -230,7 +230,7 @@ For background information on this decision, check out the following articles:
 * [Understanding Async, Avoiding Deadlocks in C#](https://medium.com/rubrikkgroup/understanding-async-avoiding-deadlocks-e41f8f2c6f5d)
 
 ## Chaining event assertions
-As part of fixing [this PR](https://github.com/fluentassertions/fluentassertions/issues/337) we had to change the event assertions work. Now, event constraining extensions like `WithArgs` and `WithSender` will return only the events that match the constraints. This means that this will no longer work:
+As part of fixing [this PR](https://github.com/awesomeassertions/awesomeassertions/issues/337) we had to change the event assertions work. Now, event constraining extensions like `WithArgs` and `WithSender` will return only the events that match the constraints. This means that this will no longer work:
 
 ```csharp
 foo

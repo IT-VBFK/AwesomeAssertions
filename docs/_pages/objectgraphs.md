@@ -29,7 +29,7 @@ All options described in the following sections are available for both `BeEquiva
 ### Recursion
 
 The comparison is recursive by default.
-To avoid infinite recursion, Fluent Assertions will recurse up to 10 levels deep by default, but if you want to force it to go as deep as possible, use the `AllowingInfiniteRecursion` option.
+To avoid infinite recursion, Awesome Assertions will recurse up to 10 levels deep by default, but if you want to force it to go as deep as possible, use the `AllowingInfiniteRecursion` option.
 On the other hand, if you want to disable recursion, just use this option:
 
 ```csharp
@@ -39,7 +39,7 @@ orderDto.Should().BeEquivalentTo(order, options =>
 
 ### Value Types
 
-To determine whether Fluent Assertions should recurs into an object's properties or fields, it needs to understand what types have value semantics and what types should be treated as reference types. The default behavior is to treat every type that overrides `Object.Equals` as an object that was designed to have value semantics. Anonymous types, `record`s, `record struct`s and tuples also override this method, but because the community proved us that they use them quite often in equivalency comparisons, we decided to always compare them by their members.
+To determine whether Awesome Assertions should recurs into an object's properties or fields, it needs to understand what types have value semantics and what types should be treated as reference types. The default behavior is to treat every type that overrides `Object.Equals` as an object that was designed to have value semantics. Anonymous types, `record`s, `record struct`s and tuples also override this method, but because the community proved us that they use them quite often in equivalency comparisons, we decided to always compare them by their members.
 
 You can easily override this by using the `ComparingByValue<T>`, `ComparingByMembers<T>`, `ComparingRecordsByValue` and `ComparingRecordsByMembers` options for individual assertions:
 
@@ -67,7 +67,7 @@ Note that primitive types are never compared by their members and trying to call
 
 ### Auto-Conversion
 
-In the past, Fluent Assertions would attempt to convert the value of a property of the subject-under-test to the type of the corresponding property on the expectation. But a lot of people complained about this behavior where a string property representing a date and time would magically match a `DateTime` property. As of 5.0, this conversion will no longer happen. However, you can still adjust the assertion by using the `WithAutoConversion` or `WithAutoConversionFor` options:
+In the past, Awesome Assertions would attempt to convert the value of a property of the subject-under-test to the type of the corresponding property on the expectation. But a lot of people complained about this behavior where a string property representing a date and time would magically match a `DateTime` property. As of 5.0, this conversion will no longer happen. However, you can still adjust the assertion by using the `WithAutoConversion` or `WithAutoConversionFor` options:
 
 ```csharp
 subject.Should().BeEquivalentTo(expectation, options => options
@@ -76,7 +76,7 @@ subject.Should().BeEquivalentTo(expectation, options => options
 
 ### Compile-time types vs. run-time types
 
-By default, Fluent Assertions respects an object's or member's declared (compile-time) type when selecting members to process during a recursive comparison.
+By default, Awesome Assertions respects an object's or member's declared (compile-time) type when selecting members to process during a recursive comparison.
 That is to say if the subject is a `OrderDto` but the variable it is assigned to has type `Dto` only the members defined by the latter class would be considered when comparing the object to the `order` variable.
 This behavior can be configured and you can choose to use run-time types if you prefer:
 
@@ -165,7 +165,7 @@ orderDto.Should().BeEquivalentTo(order, options =>
 
 Of course, `Excluding()` and `ExcludingMissingMembers()` can be combined.
 
-You can also take a different approach and explicitly tell Fluent Assertions which members to include. You can directly specify a property expression or use a predicate that acts on the provided `ISubjectInfo`.
+You can also take a different approach and explicitly tell Awesome Assertions which members to include. You can directly specify a property expression or use a predicate that acts on the provided `ISubjectInfo`.
 
 ```csharp
 orderDto.Should().BeEquivalentTo(order, options => options
@@ -176,7 +176,7 @@ orderDto.Should().BeEquivalentTo(order, options => options
 ### Including properties and/or fields
 
 You may also configure member inclusion more broadly.
-Barring other configuration, Fluent Assertions will include all `public` properties and fields.
+Barring other configuration, Awesome Assertions will include all `public` properties and fields.
 This behavior can be changed:
 
 ```csharp
@@ -318,7 +318,7 @@ orderDtos.Should().AllBeEquivalentTo(singleOrder);
 
 ### Ordering
 
-Fluent Assertions will, by default, ignore the order of the items in the collections, regardless of whether the collection is at the root of the object graph or tucked away in a nested property or field.
+Awesome Assertions will, by default, ignore the order of the items in the collections, regardless of whether the collection is at the root of the object graph or tucked away in a nested property or field.
 If the order is important, you can override the default behavior with the following option:
 
 ```csharp
@@ -349,7 +349,7 @@ orderDto.Should().BeEquivalentTo(expectation, options => options.WithoutStrictOr
 
 ### Diagnostics
 
-`Should().BeEquivalentTo` is a very powerful feature, and one of the unique selling points of Fluent Assertions. But sometimes it can be a bit overwhelming, especially if some assertion fails under unexpected conditions. To help you understand how Fluent Assertions compared two (collections of) object graphs, the failure message will always include the relevant configuration settings:
+`Should().BeEquivalentTo` is a very powerful feature, and one of the unique selling points of Awesome Assertions. But sometimes it can be a bit overwhelming, especially if some assertion fails under unexpected conditions. To help you understand how Awesome Assertions compared two (collections of) object graphs, the failure message will always include the relevant configuration settings:
 
 ```csharp
 Xunit.Sdk.XunitException

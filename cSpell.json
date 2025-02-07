@@ -16,7 +16,9 @@
         "reportables",
         "Gallio",
         "plict",
-        "enumerables"
+        "enumerables",
+        "Doomen",
+        "Nyrup"
     ],
     "patterns": [
         {

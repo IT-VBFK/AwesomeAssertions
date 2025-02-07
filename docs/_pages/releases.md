@@ -7,11 +7,15 @@ sidebar:
   nav: "sidebar"
 ---
 
-## 8.0 Alpha X
+## 8.0.0
+
+### Fork of Fluent Assertions
+* From this version on Awesome Assertions goes its own way.
+* This version is a drop-in replacement for FluentAssertion 8.0.0, but available under the [original, free Apache-2 license](https://github.com/AwesomeAssertions/AwesomeAssertions/blob/main/LICENSE).
 
 ### What's new
 
-* Introduced a new assembly-level attribute that you can use to initialize Fluent Assertions before the first assertion - [#2292](https://github.com/fluentassertions/fluentassertions/pull/2292)
+* Introduced a new assembly-level attribute that you can use to initialize Awesome Assertions before the first assertion - [#2292](https://github.com/fluentassertions/fluentassertions/pull/2292)
 * Ensure compatibility with .NET 8 - [#2466](https://github.com/fluentassertions/fluentassertions/pull/2466)
 * Add support for NUnit 4 - [#2483](https://github.com/fluentassertions/fluentassertions/pull/2483)
 * Added `NotBeIn` to check if a `DateTime` is not in a given `DateTimeKind` - [#2536](https://github.com/fluentassertions/fluentassertions/pull/2536)
@@ -28,7 +32,7 @@ sidebar:
 * Added a few more assertions on `XDocument` - [#2690](https://github.com/fluentassertions/fluentassertions/pull/2690)
     * `[Not]HaveElementWithValue`
     * `NotHaveElement`
-* Added support for xUnit.net v3 - [#2718](https://github.com/fluentassertions/fluentassertions/issues/2718)
+* Added support for xUnit.net v3 - [#2718](https://github.com/awesomeassertions/awesomeassertions/issues/2718)
 
 ### Improvements
 * Improve failure message for string assertions when checking for equality - [#2307](https://github.com/fluentassertions/fluentassertions/pull/2307)
@@ -36,7 +40,7 @@ sidebar:
   * This also adds the capability to ignore casing, leading or trailing whitespace on strings when using `BeEquivalentTo` on object graphs or collections.
   * Also adds the capability to ignore the newline style on strings - [#2565](https://github.com/fluentassertions/fluentassertions/pull/2565)
 * You can mark all assertions in an assembly as custom assertions using the `[CustomAssertionsAssembly]` attribute - [#2389](https://github.com/fluentassertions/fluentassertions/pull/2389)
-* All `Should()` methods on reference types are now annotated with the `[NotNull]` attribute for a better Fluent Assertions experience when nullable reference types are enabled - [#2380](https://github.com/fluentassertions/fluentassertions/pull/2380)
+* All `Should()` methods on reference types are now annotated with the `[NotNull]` attribute for a better Awesome Assertions experience when nullable reference types are enabled - [#2380](https://github.com/fluentassertions/fluentassertions/pull/2380)
 * All assertions that support chaining using the `.Which` construct will now amend the caller identifier - [#2539](https://github.com/fluentassertions/pull/2539)
 * Introduced a `MethodInfoFormatter` and improved the `PropertyInfoFormatter` - [#2539](https://github.com/fluentassertions/pull/2539)
 * `Excluding()` / `For().Exclude()` and `Including()` on `BeEquivalentTo()` now also accepts an anonymous object to include/exclude multiple members at once - [#2488](https://github.com/fluentassertions/fluentassertions/pull/2488)
@@ -255,7 +259,7 @@ sidebar:
 ### Fixes
 * Improved the documentation on `BeLowerCased` and `BeUpperCased` for strings with non-alphabetic characters - [#1792](https://github.com/fluentassertions/fluentassertions/pull/1792)
 * Caller identification does not handle all arguments using `new` - [#1794](https://github.com/fluentassertions/fluentassertions/pull/1794)
-* Resolved an issue preventing `HaveAccessModifier` from correctly recognizing internal interfaces and enums - [#1793](https://github.com/fluentassertions/fluentassertions/issues/1793)
+* Resolved an issue preventing `HaveAccessModifier` from correctly recognizing internal interfaces and enums - [#1793](https://github.com/awesomeassertions/awesomeassertions/issues/1793)
 * Improved tracing for nested `AssertionScope`s - [#1797](https://github.com/fluentassertions/fluentassertions/pull/1797)
 
 ### Fixes (Extensibility)
@@ -354,7 +358,7 @@ sidebar:
 * Changed `StringAssertions.StartWith`, `StringAssertions.EndWith` and their `EquivalentOf` versions to allow empty strings - [#1413](https://github.com/fluentassertions/fluentassertions/pull/1413).
 * The equivalency assertions will now include the type of the member and whether it involves a field or property - [#1379](https://github.com/fluentassertions/fluentassertions/pull/1379)
 * Changed AttributeBasedFormatter to allow custom formatter selection based on the parent type - [#1418](https://github.com/fluentassertions/fluentassertions/pull/1418).
-* Added nullable overload for `Be` and `NotBe` methods of `DateTimeAssertions` and `DateTimeOffsetAssertions` - [#1427](https://github.com/fluentassertions/fluentassertions/issues/1427).
+* Added nullable overload for `Be` and `NotBe` methods of `DateTimeAssertions` and `DateTimeOffsetAssertions` - [#1427](https://github.com/awesomeassertions/awesomeassertions/issues/1427).
 * Added overload of `Enumerating` extension method to be able to force the enumeration of an object member -[#1433](https://github.com/fluentassertions/fluentassertions/pull/1433)
 * Add overloads of `MatchRegex` and `NotMatchRegex` that take `System.Text.RegularExpressions.Regex` -[#1436](https://github.com/fluentassertions/fluentassertions/pull/1436)
 * Added support for equivalency tests on System.Data types (`DataSet`, `DataTable`, `DataColumn`, `DataRow`, `DataRelation`, `Constraint`) - [#1419](https://github.com/fluentassertions/fluentassertions/pull/1419).
@@ -489,7 +493,7 @@ sidebar:
 
 ### Fixes
 
-* Added missing dependency on System.Xml - [#79](https://github.com/fluentassertions/fluentassertions/issues/79)
+* Added missing dependency on System.Xml - [#79](https://github.com/awesomeassertions/awesomeassertions/issues/79)
 
 ## 5.10.1
 
@@ -514,17 +518,17 @@ This version was skipped.
 * Renamed collection assertion `NotBeAscendingInOrder` and `NotBeDescendingInOrder` to `NotBeInAscendingOrder` and `NotBeInDescendingOrder` (in a non-breaking way) - [#1140](https://github.com/fluentassertions/fluentassertions/pull/1140)
 * Collections containing `null`s where not properly treated as equivalent by `BeEquivalentTo` - [#1143](https://github.com/fluentassertions/fluentassertions/pull/1143)
 * `BeEquivalentTo` now allows selecting an explicit interface member over a regular instance member when using `RespectingDeclaredTypes` and the expectation type is an interface - [#1144](https://github.com/fluentassertions/fluentassertions/pull/1144)
-* Fixed a crash that can occur when trying to determine the caller identity under .NET Native - [#1149](https://github.com/fluentassertions/fluentassertions/issues/1149)
+* Fixed a crash that can occur when trying to determine the caller identity under .NET Native - [#1149](https://github.com/awesomeassertions/awesomeassertions/issues/1149)
 * Ensured that determining the caller identity works for namespaces that contain the phrase `System` and don't match on partial namespace segments - [#1193](https://github.com/fluentassertions/fluentassertions/pull/1193)
 * `BeEquivalentTo` on an `XDocument` could report the incorrect path to a self-closing XML tag - [#1170](https://github.com/fluentassertions/fluentassertions/pull/1170)
-* `BeEquivalentTo` on multi-dimensional arrays with empty elements could cause an internal error - [#1167](https://github.com/fluentassertions/fluentassertions/issues/1167)
+* `BeEquivalentTo` on multi-dimensional arrays with empty elements could cause an internal error - [#1167](https://github.com/awesomeassertions/awesomeassertions/issues/1167)
 * Several assertion APIs did not include the _reason_ in the failure messages - [#1172](https://github.com/fluentassertions/fluentassertions/pull/1172)
 * A self-closing XML element was not treated as equivalent to an empty element with the same name - [#1174](https://github.com/fluentassertions/fluentassertions/pull/1174)
 * Ensure that type assertion `ThatAreUnderNamespace` handles types in the global namespaces correctly - [#1197](https://github.com/fluentassertions/fluentassertions/pull/1197)
 * When comparing whether two objects are equal, a conversion should be precision preserving - [#1202](https://github.com/fluentassertions/fluentassertions/pull/1202)
 * `BeEquivalentTo` on normal `Tuple`s should use structural equivalency instead of treating them as value types - [#1206](https://github.com/fluentassertions/fluentassertions/pull/1206)
 * Some platforms throw reflection exceptions when trying to use `ConfigurationManager`. This is now handled more gracefully - [#1210](https://github.com/fluentassertions/fluentassertions/pull/1210)
-* Reintroduced the package dependency on `System.Xml.Linq` for .NET 4.5/4.7 - [#79](https://github.com/fluentassertions/fluentassertions/issues/79)
+* Reintroduced the package dependency on `System.Xml.Linq` for .NET 4.5/4.7 - [#79](https://github.com/awesomeassertions/awesomeassertions/issues/79)
 * Treat enums and their numeric representations in structural object graph comparisons the same - [#1208](https://github.com/fluentassertions/fluentassertions/pull/1208)
 
 Thanks to contributors [Ronald Kroon](https://github.com/ronaldkroon), [Daniel Petrov](https://github.com/danielmpetrov), [@david-a-jetter](https://github.com/david-a-jetter), [Lukas Grützmacher](https://github.com/lg2de) and [Ben Randall](https://github.com/veleek).
@@ -539,7 +543,7 @@ And special thanks to [Matthias Koch](https://github.com/matkoch) to switch us o
 
 ### Fixes
 
-* Using a custom `IAssertionStrategy` with an `AssertionScope` did not always capture all assertion failures - [#1118](https://github.com/fluentassertions/fluentassertions/issues/1118)
+* Using a custom `IAssertionStrategy` with an `AssertionScope` did not always capture all assertion failures - [#1118](https://github.com/awesomeassertions/awesomeassertions/issues/1118)
 * Ensured `null` arguments are handled with clearer exception messages - [#1117](https://github.com/fluentassertions/fluentassertions/pull/1117)
 
 Special thanks to contributors [@liklainy](https://github.com/Liklainy) and [Amaury Levé](https://github.com/Evangelink).
@@ -549,14 +553,14 @@ Special thanks to contributors [@liklainy](https://github.com/Liklainy) and [Ama
 ### What's New
 
 * Added thread-safety to tests using `AssertionScope` while running many `async` tests concurrently - [#1091](https://github.com/fluentassertions/fluentassertions/pull/1091)
-* Allow users to specify a custom `IAssertionStrategy` for the assertion scope, for instance, to create screenshots when a test fails - [#1094](https://github.com/fluentassertions/fluentassertions/pull/1094) & [#906](https://github.com/fluentassertions/fluentassertions/issues/906).
+* Allow users to specify a custom `IAssertionStrategy` for the assertion scope, for instance, to create screenshots when a test fails - [#1094](https://github.com/fluentassertions/fluentassertions/pull/1094) & [#906](https://github.com/awesomeassertions/awesomeassertions/issues/906).
 * Supports .NET Core 3.0 Preview 7 - [#1107](https://github.com/fluentassertions/fluentassertions/pull/1107)
 
 ### Fixes
 
-* `Excluding` with `BeEquivalentTo` did not always work well with overridden properties - [#1087](https://github.com/fluentassertions/fluentassertions/pull/1087) & [#1077](https://github.com/fluentassertions/fluentassertions/issues/1077)
+* `Excluding` with `BeEquivalentTo` did not always work well with overridden properties - [#1087](https://github.com/fluentassertions/fluentassertions/pull/1087) & [#1077](https://github.com/awesomeassertions/awesomeassertions/issues/1077)
 * Failure message formatting threw a `FormatException` when a nested message contains braces - [#1092](https://github.com/fluentassertions/fluentassertions/pull/1092)
-* Fixed confusing `(Not)BeAssignableTo` failure messages - [#1104](https://github.com/fluentassertions/fluentassertions/pull/1104) & [#1103](https://github.com/fluentassertions/fluentassertions/issues/1103)
+* Fixed confusing `(Not)BeAssignableTo` failure messages - [#1104](https://github.com/fluentassertions/fluentassertions/pull/1104) & [#1103](https://github.com/awesomeassertions/awesomeassertions/issues/1103)
 * Fixed a potential leakage of failure messages between multiple assertions - [#1105](https://github.com/fluentassertions/fluentassertions/pull/1105)
 
 Kudos to [conklinb](https://github.com/conklinb) and [Amaury Levé](https://github.com/Evangelink) for notable contributions and my partner-in-crime [Jonas Nyrup](https://github.com/jnyrup) for some of the fixes, a lot of (internal) quality improvements and his critical eye.
@@ -612,32 +616,32 @@ Kudos to @BrunoJuchli, @matthiaslischka and @frederik-h for these amazing additi
 
 ### Fixes
 
-* Allows `BeEquivalentTo` to handle a non-generic collection as the SUT - [#975](https://github.com/fluentassertions/fluentassertions/pull/975), [#973](https://github.com/fluentassertions/fluentassertions/issues/973)
+* Allows `BeEquivalentTo` to handle a non-generic collection as the SUT - [#975](https://github.com/fluentassertions/fluentassertions/pull/975), [#973](https://github.com/awesomeassertions/awesomeassertions/issues/973)
 * Optimized performance of `IncludeMemberByPathSelectionRule` - [#969](https://github.com/fluentassertions/fluentassertions/pull/969)
 
 ## [5.5.1](https://www.nuget.org/packages/FluentAssertions/5.5.1)
 
 ### What's New
 
-* Now provides a hint when strings differ in length and contain differences - [#915](https://github.com/fluentassertions/fluentassertions/pull/915), [#907](https://github.com/fluentassertions/fluentassertions/issues/907)
+* Now provides a hint when strings differ in length and contain differences - [#915](https://github.com/fluentassertions/fluentassertions/pull/915), [#907](https://github.com/awesomeassertions/awesomeassertions/issues/907)
 * Added `ThrowAsync`, `ThrowExactlyAsync` and `NotThrowAsync` - [#931](https://github.com/fluentassertions/fluentassertions/pull/931)
 * Added support for `Should().Throw` and `Should().NotThrow` for `Func<T>` - [#951](https://github.com/fluentassertions/fluentassertions/pull/951)
 * Added support for `private protected` access modifier - [#932](https://github.com/fluentassertions/fluentassertions/pull/932)
 * Updated `BeApproximately` to support nullable types for both the subject and the expectation nullable - [#934](https://github.com/fluentassertions/fluentassertions/pull/934)
 * Added `async` version of `ExecutionTime` to - [#938](https://github.com/fluentassertions/fluentassertions/pull/938)
 * Updated `NotBeApproximately` to accepting nullable subject and expectation - [#939](https://github.com/fluentassertions/fluentassertions/pull/939)
-* `type.Should().Be(type)` now support open generics - [#954](https://github.com/fluentassertions/fluentassertions/issues/954), [#955](https://github.com/fluentassertions/fluentassertions/pull/955)
+* `type.Should().Be(type)` now support open generics - [#954](https://github.com/awesomeassertions/awesomeassertions/issues/954), [#955](https://github.com/fluentassertions/fluentassertions/pull/955)
 
 ### Fixes
 
 * Minor performance improvements to prevent rendering messages if a test did not fail - [#921](https://github.com/fluentassertions/fluentassertions/pull/921), [#915](https://github.com/fluentassertions/fluentassertions/pull/915)
-* Improve performance of `Should().AllBeEquivalentTo()` - [#920](https://github.com/fluentassertions/fluentassertions/pull/920), [#914](https://github.com/fluentassertions/fluentassertions/issues/914)
-* Improve the presentation of enums to include the value and the number - [#923](https://github.com/fluentassertions/fluentassertions/pull/923), [#897](https://github.com/fluentassertions/fluentassertions/issues/897)
-* `BeEquivalentTo` with `WithStrictOrdering` produced messy failure message - [#918](https://github.com/fluentassertions/fluentassertions/issues/918)
+* Improve performance of `Should().AllBeEquivalentTo()` - [#920](https://github.com/fluentassertions/fluentassertions/pull/920), [#914](https://github.com/awesomeassertions/awesomeassertions/issues/914)
+* Improve the presentation of enums to include the value and the number - [#923](https://github.com/fluentassertions/fluentassertions/pull/923), [#897](https://github.com/awesomeassertions/awesomeassertions/issues/897)
+* `BeEquivalentTo` with `WithStrictOrdering` produced messy failure message - [#918](https://github.com/awesomeassertions/awesomeassertions/issues/918)
 * Fixes detecting checking equivalency of a `null` subject to a dictionary - [#933](https://github.com/fluentassertions/fluentassertions/pull/933)
 * Fixes duplicate conversions being mentioned in the output of the equivalency API - [#941](https://github.com/fluentassertions/fluentassertions/pull/941)
 * Comparing an object graph against `IEnumerable` now works now as expected - [#911](https://github.com/fluentassertions/fluentassertions/pull/911)
-* Selecting members during object graph assertions now better handles `new` overrides - [#960](https://github.com/fluentassertions/fluentassertions/pull/960), [#956](https://github.com/fluentassertions/fluentassertions/issues/956)
+* Selecting members during object graph assertions now better handles `new` overrides - [#960](https://github.com/fluentassertions/fluentassertions/pull/960), [#956](https://github.com/awesomeassertions/awesomeassertions/issues/956)
 
 **Note** In versions prior to 5.5, FA may have skipped certain properties in the equivalency comparison. [#960](https://github.com/fluentassertions/fluentassertions/pull/960) fixes this, so this may cause some breaking changes.
 

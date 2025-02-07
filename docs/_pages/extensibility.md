@@ -7,7 +7,7 @@ sidebar:
   nav: "sidebar"
 ---
 
-To facilitate the need for those developers which ideas don't end up in the library, Fluent Assertions offers several extension points. They are there so that they can build their own extensions with the same consistent API and behavior people are used to. And if they feel the need to alter the behavior of the built-in set of assertion methods, they can use the many hooks offered out of the box. The flip side of all of this is that we cannot just change the internals of FA without considering backwards compatibility. But looking at the many extensions available on the NuGet, it's absolutely worth it.
+To facilitate the need for those developers which ideas don't end up in the library, Awesome Assertions offers several extension points. They are there so that they can build their own extensions with the same consistent API and behavior people are used to. And if they feel the need to alter the behavior of the built-in set of assertion methods, they can use the many hooks offered out of the box. The flip side of all of this is that we cannot just change the internals of FA without considering backwards compatibility. But looking at the many extensions available on the NuGet, it's absolutely worth it.
 
 ## Building your own extensions
 
@@ -65,7 +65,7 @@ public class DirectoryInfoAssertions :
 This is quite an elaborate example which shows some of the more advanced extensibility features. Let me highlight some things:
 
 * The `Subject` property is used to give the base-class extensions access to the current `DirectoryInfo` object.
-* `[CustomAssertion]` attribute enables correct subject identification, allowing Fluent Assertions to render more meaningful test fail messages
+* `[CustomAssertion]` attribute enables correct subject identification, allowing Awesome Assertions to render more meaningful test fail messages
 * The variable `chain` of type `AssertionChain` is the point of entrance into the internal fluent API.
 * The optional `because` parameter can contain `string.Format` style place holders which will be filled using the values provided to the `becauseArgs`. They can be used by the caller to provide a reason why the assertion should succeed. By passing those into the `BecauseOf` method, you can refer to the expanded result using the `{reason}` tag in the `FailWith` method.
 * The `Then` property is just there to chain multiple assertions together. You can have more than one. However, if the first assertion fails, then the successive assertions will not be evaluated anymore.
@@ -138,7 +138,7 @@ So in this case, our nicely created `ContainFile` extension method will display 
 
 ## Rendering objects with beauty
 
-Whenever Fluent Assertions raises an assertion exception, it will use value formatters to render a display representation of an object. Notice that these things are supposed to do more than just calling `Format`. A good formatter will include the relevant parts and hide the irrelevant parts. For instance, the `DateTimeOffsetValueFormatter` is there to give you a nice human-readable representation of a date and time with offset. It will only show the parts of that value that have non-default values. Check out the [specs](https://github.com/fluentassertions/fluentassertions/blob/master/Tests/FluentAssertions.Specs/Formatting/FormatterSpecs.cs) to see some examples of that.
+Whenever Awesome Assertions raises an assertion exception, it will use value formatters to render a display representation of an object. Notice that these things are supposed to do more than just calling `Format`. A good formatter will include the relevant parts and hide the irrelevant parts. For instance, the `DateTimeOffsetValueFormatter` is there to give you a nice human-readable representation of a date and time with offset. It will only show the parts of that value that have non-default values. Check out the [specs](https://github.com/awesomeassertions/awesomeassertions/blob/main/Tests/FluentAssertions.Specs/Formatting/FormatterSpecs.cs) to see some examples of that.
 
 You can hook-up your own formatters in several ways, for example by calling the static method `FluentAssertions.Formatting.Formatter.AddFormatter(IValueFormatter)`. But what does it mean to build your own? Well, a value formatter just needs to implement the two methods `IValueFormatter` declares. First, it needs to tell FA whether your formatter can handle a certain type by implementing the well-named method `CanHandle(object)`. The other one is there to, no surprises here, render it to a string.
 
@@ -262,7 +262,7 @@ using (var innerScope = new AssertionScope())
 
 ## To be or not to be a value type
 
-The structural equivalency API provided by `Should().BeEquivalentTo` and is arguably the most powerful, but also the most complicated part of Fluent Assertions. And to make things worse, you can extend and adapt the default behavior quite extensively.
+The structural equivalency API provided by `Should().BeEquivalentTo` and is arguably the most powerful, but also the most complicated part of Awesome Assertions. And to make things worse, you can extend and adapt the default behavior quite extensively.
 
 For instance, to determine whether FA needs to recursive into a complex object, it needs to know whether or not a particular type has value semantics. An object that has properties isn't necessarily a complex type that you want to recurse on. `DirectoryInfo` has properties, but you don't want FA to just traverse its properties. So you need to tell what types should be treated as value types.
 
@@ -364,7 +364,7 @@ internal static class Initializer
 }
 ```
 
-Unfortunately, this only works for .NET 5 and higher. That's why Fluent Assertions supports its own "module initializer" through the `[AssertionEngineInitializer]` attribute. It can be used multiple times.
+Unfortunately, this only works for .NET 5 and higher. That's why Awesome Assertions supports its own "module initializer" through the `[AssertionEngineInitializer]` attribute. It can be used multiple times.
 
 ```csharp
 [assembly: AssertionEngineInitializer(typeof(Initializer), nameof(Initializer.Initialize))]

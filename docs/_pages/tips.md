@@ -30,12 +30,12 @@ If you see something missing, please consider submitting a pull request.
 
 ## MSTest Migration
 
-The examples below show how you might write equivalent MSTest assertions using Fluent Assertions including the failure message from each case.
+The examples below show how you might write equivalent MSTest assertions using Awesome Assertions including the failure message from each case.
 We think this is both a useful migration guide and a convincing argument for switching.
 
 If you see something missing, please consider submitting a pull request.
 
-{% include assertion-comparison.html header1="MSTest" header2="Fluent Assertions" idPrefix="mstest-" caption="Assert"            examples=site.data.mstest-migration.assert %}
-{% include assertion-comparison.html header1="MSTest" header2="Fluent Assertions" idPrefix="mstest-" caption="CollectionAssert"  examples=site.data.mstest-migration.collectionAssert %}
-{% include assertion-comparison.html header1="MSTest" header2="Fluent Assertions" idPrefix="mstest-" caption="StringAssert"      examples=site.data.mstest-migration.stringAssert %}
-{% include assertion-comparison.html header1="MSTest" header2="Fluent Assertions" idPrefix="mstest-" caption="Exceptions"        examples=site.data.mstest-migration.exceptions %}
+{% include assertion-comparison.html header1="MSTest" header2="Awesome Assertions" idPrefix="mstest-" caption="Assert"            examples=site.data.mstest-migration.assert %}
+{% include assertion-comparison.html header1="MSTest" header2="Awesome Assertions" idPrefix="mstest-" caption="CollectionAssert"  examples=site.data.mstest-migration.collectionAssert %}
+{% include assertion-comparison.html header1="MSTest" header2="Awesome Assertions" idPrefix="mstest-" caption="StringAssert"      examples=site.data.mstest-migration.stringAssert %}
+{% include assertion-comparison.html header1="MSTest" header2="Awesome Assertions" idPrefix="mstest-" caption="Exceptions"        examples=site.data.mstest-migration.exceptions %}

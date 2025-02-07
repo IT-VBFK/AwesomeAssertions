@@ -1,6 +1,6 @@
 # How to contribute
 
-The Fluent Assertions [landing page](https://fluentassertions.com) is using Jekyll and GitHub Pages.
+The Awesome Assertions [landing page](https://awesomeassertions.github.io/AwesomeAssertions/) is using Jekyll and GitHub Pages.
 
 ## How to Build this Site
 

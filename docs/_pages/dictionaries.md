@@ -7,7 +7,7 @@ sidebar:
   nav: "sidebar"
 ---
 
-You can apply Fluent Assertions to your generic dictionaries as well.
+You can apply Awesome Assertions to your generic dictionaries as well.
 Of course you can assert any dictionary to be null or not null, and empty or not empty.
 Like this:
 

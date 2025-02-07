@@ -9,7 +9,7 @@ sidebar:
 
 ## Enums
 
-Fluent Assertions have several ways to compare enums.
+Awesome Assertions have several ways to compare enums.
 
 The basic ones, `Be` and `HaveFlag`, just calls directly into `Enum.Equals` and `Enum.HasFlag`.
 

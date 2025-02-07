@@ -7,7 +7,7 @@ main:
   - title: "Releases"
     url: /releases/
   - title: "GitHub"
-    url: https://github.com/fluentassertions/fluentassertions
+    url: https://github.com/awesomeassertions/awesomeassertions
 
 sidebar:
   - title: About
@@ -57,8 +57,6 @@ sidebar:
         url: /guids
       - title: Enums
         url: /enums
-      - title: System.Data
-        url: /data
       - title: Exceptions
         url: /exceptions
       - title: Object graph comparison
