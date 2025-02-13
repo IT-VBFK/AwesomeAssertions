@@ -9,7 +9,7 @@ sidebar:
 
 ## Members and Actions
 
-Fluent Assertions also provides a method to assert that the execution time of particular method or action does not exceed a predefined value.
+Awesome Assertions also provides a method to assert that the execution time of particular method or action does not exceed a predefined value.
 To verify the execution time of a method, use the following syntax:
 
 ```csharp

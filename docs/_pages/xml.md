@@ -7,7 +7,7 @@ sidebar:
   nav: "sidebar"
 ---
 
-Fluent Assertions has support for assertions on several of the LINQ-to-XML classes:
+Awesome Assertions has support for assertions on several of the LINQ-to-XML classes:
 
 ```csharp
 xDocument.Should().HaveRoot("configuration");

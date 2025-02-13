@@ -7,8 +7,8 @@ sidebar:
   nav: "sidebar"
 ---
 
-Fluent Assertions has a set of extensions that allow you to verify that an object raised a particular event.
-Before you can invoke the assertion extensions, you must first tell Fluent Assertions that you want to monitor the object:
+Awesome Assertions has a set of extensions that allow you to verify that an object raised a particular event.
+Before you can invoke the assertion extensions, you must first tell Awesome Assertions that you want to monitor the object:
 
 ```csharp
 var subject = new EditCustomerViewModel();
@@ -22,7 +22,7 @@ monitoredSubject.Should().Raise("NameChangedEvent");
 monitoredSubject.Should().NotRaise("SomeOtherEvent");
 ```
 
-Notice that Fluent Assertions will keep monitoring the `subject` for as long as the `using` block lasts.
+Notice that Awesome Assertions will keep monitoring the `subject` for as long as the `using` block lasts.
 
 ## Filtering asserted events
 

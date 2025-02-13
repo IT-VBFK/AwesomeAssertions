@@ -14,7 +14,7 @@ sidebar:
 
 ## Getting started
 
-Fluent Assertions is a set of .NET extension methods that allow you to more naturally specify the expected outcome of a TDD or BDD-style unit test. This enables a simple intuitive syntax that all starts with the following `using` statement:
+Awesome Assertions is a set of .NET extension methods that allow you to more naturally specify the expected outcome of a TDD or BDD-style unit test. This enables a simple intuitive syntax that all starts with the following `using` statement:
 
 ```csharp
 using FluentAssertions;
@@ -73,7 +73,7 @@ This chaining can make your unit tests a lot easier to read.
 
 ## Global Configurations
 
-Fluent Assertions' `AssertionConfiguration` has several methods and properties that can be used to change the way it executes assertions or the defaults it will use for comparing object graphs. Changing those settings at the right time can be difficult, depending on the test framework. That's why Fluent Assertions offers a special assembly-level attribute that can be used to have some code executed _before_ the first assertion is executed. It will be called only once per test run, but you can use the attribute multiple times.
+Awesome Assertions' `AssertionConfiguration` has several methods and properties that can be used to change the way it executes assertions or the defaults it will use for comparing object graphs. Changing those settings at the right time can be difficult, depending on the test framework. That's why Awesome Assertions offers a special assembly-level attribute that can be used to have some code executed _before_ the first assertion is executed. It will be called only once per test run, but you can use the attribute multiple times.
 
 ```csharp
 [assembly: AssertionEngineInitializer(typeof(Initializer), nameof(Initializer.Initialize))]
@@ -90,9 +90,9 @@ public static class Initializer
 
 ## Detecting Test Frameworks
 
-Fluent Assertions supports a lot of different unit testing frameworks. Just add a reference to the corresponding test framework assembly to the unit test project. Fluent Assertions will automatically find the corresponding assembly and use it for throwing the framework-specific exceptions.
+Awesome Assertions supports a lot of different unit testing frameworks. Just add a reference to the corresponding test framework assembly to the unit test project. Awesome Assertions will automatically find the corresponding assembly and use it for throwing the framework-specific exceptions.
 
-If, for some unknown reason, Fluent Assertions fails to find the assembly, and you're running under .NET 4.7 or a .NET 6.0 project, try specifying the framework explicitly using a configuration setting in the project’s app.config. If it cannot find any of the supported frameworks, it will fall back to using a custom `AssertionFailedException` exception class.
+If, for some unknown reason, Awesome Assertions fails to find the assembly, and you're running under .NET 4.7 or a .NET 6.0 project, try specifying the framework explicitly using a configuration setting in the project’s app.config. If it cannot find any of the supported frameworks, it will fall back to using a custom `AssertionFailedException` exception class.
 
 ```xml
 <configuration>
@@ -107,7 +107,7 @@ Just add NuGet package "FluentAssertions" to your test project.
 
 ## Subject Identification
 
-Fluent Assertions can use the C# code of the unit test to extract the name of the subject and use that in the assertion failure. Consider for instance this statement:
+Awesome Assertions can use the C# code of the unit test to extract the name of the subject and use that in the assertion failure. Consider for instance this statement:
 
 ```csharp
 string username = "dennis";
@@ -118,10 +118,10 @@ This will throw a test framework-specific exception with the following message:
 
     Expected username to be "jonas" with a length of 5, but "dennis" has a length of 6, differs near "den" (index 0).
 
-The way this works is that Fluent Assertions will try to traverse the current stack trace to find the line and column numbers as well as the full path to the source file. Since it needs the debug symbols for that, this will require you to compile the unit test projects in debug mode, even on your build servers.
+The way this works is that Awesome Assertions will try to traverse the current stack trace to find the line and column numbers as well as the full path to the source file. Since it needs the debug symbols for that, this will require you to compile the unit test projects in debug mode, even on your build servers.
 Also, this does not work with [`PathMap`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/compiler-options/advanced#pathmap) for unit test projects as it assumes that source files are present on the path returned from [`StackFrame.GetFileName()`](https://learn.microsoft.com/en-us/dotnet/api/system.diagnostics.stackframe.getfilename).
 
-Now, if you've built your own extensions that use Fluent Assertions directly, you can tell it to skip that extension code while traversing the stack trace. Consider for example the customer assertion:
+Now, if you've built your own extensions that use Awesome Assertions directly, you can tell it to skip that extension code while traversing the stack trace. Consider for example the customer assertion:
 
 ```csharp
     public class CustomerAssertions
@@ -147,13 +147,13 @@ And it's usage:
 myClient.Should().BeActive("because we don't work with old clients");
 ```
 
-Without the `[CustomAssertion]` attribute, Fluent Assertions would find the line that calls `Should().BeTrue()` and treat the `customer` variable as the subject-under-test (SUT). But by applying this attribute, it will ignore this invocation and instead find the SUT by looking for a call to `Should().BeActive()` and use the `myClient` variable instead.
+Without the `[CustomAssertion]` attribute, Awesome Assertions would find the line that calls `Should().BeTrue()` and treat the `customer` variable as the subject-under-test (SUT). But by applying this attribute, it will ignore this invocation and instead find the SUT by looking for a call to `Should().BeActive()` and use the `myClient` variable instead.
 
-Alternatively, you can add the `[assembly:CustomAssertionsAssembly]` attribute to a file within the project to tell Fluent Assertions that all code in that assembly should be treated as custom assertion code.
+Alternatively, you can add the `[assembly:CustomAssertionsAssembly]` attribute to a file within the project to tell Awesome Assertions that all code in that assembly should be treated as custom assertion code.
 
 ## Assertion Scopes
 
-You can batch multiple assertions into an `AssertionScope` so that Fluent Assertions throws one exception at the end of the scope with all failures.
+You can batch multiple assertions into an `AssertionScope` so that Awesome Assertions throws one exception at the end of the scope with all failures.
 
 E.g.
 
@@ -202,7 +202,7 @@ using (var scope = new AssertionScope())
 }
 ```
 
-For more examples take a look at the [AssertionScopeSpecs.cs](https://github.com/fluentassertions/fluentassertions/blob/main/Tests/FluentAssertions.Specs/Execution/AssertionScopeSpecs.cs) in Unit Tests.
+For more examples take a look at the [AssertionScopeSpecs.cs](https://github.com/awesomeassertions/awesomeassertions/blob/main/Tests/FluentAssertions.Specs/Execution/AssertionScopeSpecs.cs) in Unit Tests.
 
 ### Scoped `IValueFormatter`s
 

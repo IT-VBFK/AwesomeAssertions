@@ -34,7 +34,7 @@ ignore these characters. In other words, `BeUpperCased` will succeed if the stri
 `ToUpperInvariant`, and likewise for `BeLowerCased`. `NotBeUpperCased` will fail only if the string contains characters
 with case, and all those characters are upper-case, and likewise for `NotBeLowerCased`.
 
-The semantics of these assertions changed in FluentAssertions v7.0. For the previous semantics, asserting that all
+The semantics of these assertions changed in Awesome Assertions v7.0. For the previous semantics, asserting that all
 characters in the string are upper-case characters, for example, you can use a collection assertion on the characters of
 the string:
 
