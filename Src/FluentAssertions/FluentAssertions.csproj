@@ -13,6 +13,8 @@
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
     <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
     <PackageId>AwesomeAssertions</PackageId>
+    <Company>AwesomeAssertions</Company>
+    <Product>AwesomeAssertions</Product>
   </PropertyGroup>
 
   <PropertyGroup Label="Package info">
