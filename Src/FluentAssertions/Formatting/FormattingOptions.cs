@@ -43,6 +43,22 @@ public class FormattingOptions
     public int MaxLines { get; set; } = 100;
 
     /// <summary>
+    /// Sets the default number of characters shown when printing the difference of two strings.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// The actual number of shown characters depends on the word-boundary-algorithm.<br />
+    /// This algorithm searches for a word boundary (a blank) in the range from 5 characters previous and 10 characters after the
+    /// <see cref="StringPrintLength"/>. If found it displays a full word, otherwise it falls back to the <see cref="StringPrintLength"/>.
+    /// </para>
+    /// <para>
+    /// This property is not thread-safe and should not be modified through <see cref="AssertionConfiguration"/> from within a unit test.
+    /// See the <see href="https://awesomeassertions.org/extensibility/#thread-safety">docs</see> on how to safely use it.
+    /// </para>
+    /// </remarks>
+    public int StringPrintLength { get; set; } = 50;
+
+    /// <summary>
     /// Removes a scoped formatter that was previously added through <see cref="FormattingOptions.AddFormatter"/>.
     /// </summary>
     /// <param name="formatter">A custom implementation of <see cref="IValueFormatter"/></param>
@@ -71,6 +87,7 @@ public class FormattingOptions
             UseLineBreaks = UseLineBreaks,
             MaxDepth = MaxDepth,
             MaxLines = MaxLines,
+            StringPrintLength = StringPrintLength,
             ScopedFormatters = [.. ScopedFormatters],
         };
     }
