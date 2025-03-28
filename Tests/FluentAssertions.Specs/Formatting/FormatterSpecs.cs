@@ -194,6 +194,135 @@ public sealed class FormatterSpecs : IDisposable
             .And.Contain("InnerExceptionMessage");
     }
 
+    [InlineData(typeof(ulong), "ulong")]
+    [InlineData(typeof(void), "void")]
+    [InlineData(typeof(float?), "float?")]
+    [Theory]
+    public void When_the_object_is_a_primitive_type_it_should_be_formatted_as_language_keyword(Type subject, string expected)
+    {
+        // Act
+        string result = Formatter.ToString(subject);
+
+        // Assert
+        result.Should().Be(expected);
+    }
+
+    [Theory]
+    [InlineData(typeof(List<FormatterSpecs>), "System.Collections.Generic.List<FluentAssertions.Specs.Formatting.FormatterSpecs>")]
+    [InlineData(typeof(Dictionary<,>), "System.Collections.Generic.Dictionary<TKey, TValue>")]
+    [InlineData(typeof(Dictionary<List<IEnumerable<byte>>, Dictionary<string, Dictionary<int, object>>>), "System.Collections.Generic.Dictionary<System.Collections.Generic.List<System.Collections.Generic.IEnumerable<byte>>, System.Collections.Generic.Dictionary<string, System.Collections.Generic.Dictionary<int, object>>>")]
+    public void When_the_object_is_a_generic_type_it_should_be_formatted_as_written_in_source_code(Type subject, string expected)
+    {
+        // Act
+        string result = Formatter.ToString(subject);
+
+        // Assert
+        result.Should().Be(expected);
+    }
+
+    [Theory]
+    [InlineData(typeof(int[]), "int[]")]
+    [InlineData(typeof(float[][]), "float[][]")]
+    [InlineData(typeof(float[][][]), "float[][][]")]
+    [InlineData(typeof(FormatterSpecs[,]), "FluentAssertions.Specs.Formatting.FormatterSpecs[,]")]
+    [InlineData(typeof((string, int, Type)[,,]), "System.ValueTuple<string, int, System.Type>[,,]")]
+    public void When_the_object_is_an_array_it_should_be_formatted_as_written_in_source_code(Type subject, string expected)
+    {
+        // Act
+        string result = Formatter.ToString(subject);
+
+        // Assert
+        result.Should().Be(expected);
+    }
+
+    [Theory]
+    [InlineData(typeof(NestedClass), "FluentAssertions.Specs.Formatting.FormatterSpecs+NestedClass")]
+    [InlineData(typeof(NestedClass<int>), "FluentAssertions.Specs.Formatting.FormatterSpecs+NestedClass<int>")]
+    [InlineData(typeof(NestedClass<float>.InnerClass<string, object>), "FluentAssertions.Specs.Formatting.FormatterSpecs+NestedClass`1+InnerClass<string, object>")]
+    public void When_the_object_is_a_nested_class_its_declaring_types_should_be_formatted_like_the_clr_shorthand(Type subject, string expected)
+    {
+        // Act
+        string result = Formatter.ToString(subject);
+
+        // Assert
+        result.Should().Be(expected);
+    }
+
+    [Theory]
+    [InlineData(typeof(int?[]), "int?[]")]
+    [InlineData(typeof((string, int?)), "System.ValueTuple<string, int?>")]
+    public void When_the_object_contains_a_nullable_type_somewhere_it_should_be_formatted_with_a_questionmark(Type subject, string expected)
+    {
+        // Act
+        string result = Formatter.ToString(subject);
+
+        // Assert
+        result.Should().Be(expected);
+    }
+
+    [Theory]
+    [InlineData(typeof(List<FormatterSpecs>), "List<FormatterSpecs>")]
+    [InlineData(typeof(Dictionary<,>), "Dictionary<TKey, TValue>")]
+    [InlineData(typeof(Dictionary<List<IEnumerable<byte>>, Dictionary<string, Dictionary<int, object>>>), "Dictionary<List<IEnumerable<byte>>, Dictionary<string, Dictionary<int, object>>>")]
+    public void When_the_object_is_a_shortvaluetype_with_generic_type_it_should_be_formatted_as_written_in_source_code_without_namespaces(Type subject, string expected)
+    {
+        // Act
+        string result = Formatter.ToString(subject.AsFormattableShortType());
+
+        // Assert
+        result.Should().Be(expected);
+    }
+
+    [Theory]
+    [InlineData(null, "<null>")]
+    [InlineData(typeof(FormatterSpecs), "FluentAssertions.Specs.Formatting.FormatterSpecs")]
+    [InlineData(typeof(List<FormatterSpecs>), "System.Collections.Generic.List<T>")]
+    [InlineData(typeof(Dictionary<,>), "System.Collections.Generic.Dictionary<TKey, TValue>")]
+    [InlineData(typeof(Dictionary<List<IEnumerable<byte>>, Dictionary<string, Dictionary<int, object>>>), "System.Collections.Generic.Dictionary<TKey, TValue>")]
+    public void When_the_object_is_requested_to_be_formatted_as_type_definition_it_should_format_without_generic_argument_details(Type subject, string expected)
+    {
+        // Act
+        string result = Formatter.ToString(subject.AsFormattableTypeDefinition());
+
+        // Assert
+        result.Should().Be(expected);
+    }
+
+    [Theory]
+    [InlineData(null, "<null>")]
+    [InlineData(typeof(FormatterSpecs), "FormatterSpecs")]
+    [InlineData(typeof(List<FormatterSpecs>), "List<T>")]
+    [InlineData(typeof(Dictionary<,>), "Dictionary<TKey, TValue>")]
+    [InlineData(typeof(Dictionary<List<IEnumerable<byte>>, Dictionary<string, Dictionary<int, object>>>), "Dictionary<TKey, TValue>")]
+    public void When_the_object_is_requested_to_be_formatted_as_short_type_definition_it_should_format_without_generic_argument_details_and_without_namespaces(Type subject, string expected)
+    {
+        // Act
+        string result = Formatter.ToString(subject.AsFormattableShortTypeDefinition());
+
+        // Assert
+        result.Should().Be(expected);
+    }
+
+    [Fact]
+    public void When_the_object_is_a_class_without_namespace_it_should_be_formatted_with_the_class_name_only()
+    {
+        // Act
+        string result = Formatter.ToString(typeof(AssertionScopeSpecsWithoutNamespace));
+
+        // Assert
+        result.Should().Be(nameof(AssertionScopeSpecsWithoutNamespace));
+    }
+
+    private sealed class NestedClass
+    {
+        public sealed class InnerClass;
+    }
+
+    private sealed class NestedClass<T>
+    {
+        public sealed class InnerClass<T1, T2>;
+    }
+
     [Fact]
     public void When_the_object_is_a_generic_type_without_custom_string_representation_it_should_show_the_properties()
     {
@@ -240,13 +369,13 @@ public sealed class FormatterSpecs : IDisposable
                 """
                 Expected stuff to be equal to
                 {
-                    FluentAssertions.Specs.Formatting.FormatterSpecs+Stuff`1[[System.Int32*]]
+                    FluentAssertions.Specs.Formatting.FormatterSpecs+Stuff<int>
                     {
                         Children = {1, 2, 3, 4},
                         Description = "Stuff_1",
                         StuffId = 1
                     },
-                    FluentAssertions.Specs.Formatting.FormatterSpecs+Stuff`1[[System.Int32*]]
+                    FluentAssertions.Specs.Formatting.FormatterSpecs+Stuff<int>
                     {
                         Children = {1, 2, 3, 4},
                         Description = "WRONG_DESCRIPTION",
@@ -254,13 +383,13 @@ public sealed class FormatterSpecs : IDisposable
                     }
                 }, but
                 {
-                    FluentAssertions.Specs.Formatting.FormatterSpecs+Stuff`1[[System.Int32*]]
+                    FluentAssertions.Specs.Formatting.FormatterSpecs+Stuff<int>
                     {
                         Children = {1, 2, 3, 4},
                         Description = "Stuff_1",
                         StuffId = 1
                     },
-                    FluentAssertions.Specs.Formatting.FormatterSpecs+Stuff`1[[System.Int32*]]
+                    FluentAssertions.Specs.Formatting.FormatterSpecs+Stuff<int>
                     {
                         Children = {1, 2, 3, 4},
                         Description = "Stuff_2",
@@ -863,7 +992,7 @@ public sealed class FormatterSpecs : IDisposable
         string result = Formatter.ToString(bar);
 
         // Assert
-        result.Should().Be("System.Threading.Tasks.Task`1[System.Int32] {Status=WaitingForActivation}");
+        result.Should().Be("System.Threading.Tasks.Task<int> {Status=WaitingForActivation}");
     }
 
     [Fact]
@@ -876,7 +1005,7 @@ public sealed class FormatterSpecs : IDisposable
         string result = Formatter.ToString(completionSource);
 
         // Assert
-        result.Should().Match("*TaskCompletionSource*Task*System.Int32*Status=WaitingForActivation*");
+        result.Should().Match("*TaskCompletionSource*System.Threading.Tasks.Task<int>*Status=WaitingForActivation*");
     }
 
     private class MyKey
@@ -936,14 +1065,24 @@ public sealed class FormatterSpecs : IDisposable
         When_formatting_multiple_items_with_a_custom_string_representation_using_line_breaks_it_should_end_lines_with_a_comma()
     {
         // Arrange
-        Type[] subject = [typeof(A), typeof(B)];
+        object[] subject = [new ClassAWithToStringOverride(), new ClassBWithToStringOverride()];
 
         // Act
         string result = Formatter.ToString(subject, new FormattingOptions { UseLineBreaks = true });
 
         // Assert
-        result.Should().Contain($"FluentAssertions.Specs.Formatting.FormatterSpecs+A, {Environment.NewLine}");
-        result.Should().Contain($"FluentAssertions.Specs.Formatting.FormatterSpecs+B{Environment.NewLine}");
+        result.Should().Contain($"One override, {Environment.NewLine}");
+        result.Should().Contain($"Other override{Environment.NewLine}");
+    }
+
+    private class ClassAWithToStringOverride
+    {
+        public override string ToString() => "One override";
+    }
+
+    private class ClassBWithToStringOverride
+    {
+        public override string ToString() => "Other override";
     }
 
     public class BaseStuff
