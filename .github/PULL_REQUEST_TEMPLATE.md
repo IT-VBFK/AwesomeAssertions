@@ -13,4 +13,4 @@
 
 ## Legal checklist
 
-* [ ] This work is based on my own (e.g. not copying from FluenAssertions)
+* [ ] This work is based on my own (e.g. not copying from FluentAssertions)
