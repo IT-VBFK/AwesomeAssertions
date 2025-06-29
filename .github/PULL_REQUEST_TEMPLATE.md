@@ -13,4 +13,4 @@
 
 ## Legal checklist
 
-* [ ] This work is based on my own (e.g. not copying from FluentAssertions)
+* [ ] This work is entirely original, it is not derived from any existing code incompatible with the Apache 2.0 License, like FluentAssertions.
